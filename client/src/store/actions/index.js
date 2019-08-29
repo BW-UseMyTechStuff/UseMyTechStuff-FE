@@ -38,19 +38,24 @@ export const REGISTRATION_START = 'REGISTRATION_START';
 export const REGISTRATION_SUCCESS = 'REGISTRATION_SUCCESS';
 export const REGISTRATION_FAILURE = 'REGISTRATION_FAILURE';
 
-export const addUser = addUser => dispatch => {
+export const addUser = (username, password, email, birthday) => dispatch => {
   dispatch({ type: REGISTRATION_START });
   axiosWithAuth()
-  .post(`/auth/register`, addUser)
-  .then(res => {
-    localStorage.setItem('token', res.data.token)
-    dispatch({ type:REGISTRATION_SUCCESS, payload: res.data});
-    return true;
-  })
-  .catch(err => {
-    
-    dispatch({type: REGISTRATION_FAILURE, payload: err.response})
-  })
+    .post(`/auth/register`, {
+      username: username,
+      password: password,
+      email: email,
+      birthday: birthday
+    })
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      dispatch({ type: REGISTRATION_SUCCESS, payload: res.data });
+      return true;
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: REGISTRATION_FAILURE, payload: err.response });
+    });
 }
 
 // Get Item
@@ -64,7 +69,7 @@ export const fetchItem = getStuff =>dispatch => {
   axiosWithAuth()
     .get(`/techstuff/items`, getStuff )
     .then(res => {
-      // console.log('fetched items', res)
+      console.log('fetched items', res)
       dispatch({type:FETCH_SUCCESS, payload:res.data})
     })
     .catch(err => {
@@ -80,11 +85,12 @@ export const addItem = addStuff => dispatch => {
   axiosWithAuth()
   .post(`techstuff/newItem`, addStuff)
   .then(res => {
-    // console.log('added item', res.data)
+    console.log('added item', res.data)
     dispatch({type: FETCH_SUCCESS, payload: res.data})
     return true
   })
   .catch (err =>{
+    console.log(err)
     dispatch({type: FETCH_FAILURE})
   });
 }
@@ -131,6 +137,7 @@ export const deleteItem = id => dispatch => {
        dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });
     })
     .catch(err => {
+      console.log(err)
       dispatch({ type: DELETE_ITEM_FAILURE, payload: err.response });
     });
 };

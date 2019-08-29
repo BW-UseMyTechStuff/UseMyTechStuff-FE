@@ -40,17 +40,20 @@ button {
   background: #EA9703;
   align-self: center;
   /* width: 30%; */
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border: none;
-  color: white;
+  color: #F6F6F8;
   font-size: 1.2rem;
   border-radius: 2px;
   box-shadow: 1px 1px 5px #000;
   cursor: pointer;
+  font-family: 'Tinos', serif;
+  /* width: 10rem; */
+  width: 115px;
 }
 
-.button:hover {
-  background: #E8B409;
+button:hover {
+  background: #085E27;
 }
 
 /*Carousel*/

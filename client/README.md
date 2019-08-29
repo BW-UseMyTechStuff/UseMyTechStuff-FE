@@ -1,3 +1,47 @@
+# Proposal
+
+---
+
+- What problem does your app solve?
+
+**Tech is expensive to purchase. Not everyone has access to tech**
+
+- Be as specific as possible; how does your app solve the problem?
+
+**Great way to rent out tech for low cost. Especially if you are not going to need the tech again**
+
+- What is the mission statement?
+
+**Our mission is to ensure that users have a safe platform to buy/rent tech products by ensuring security and a variety of products to choose from.**
+
+# Features
+
+---
+
+- What features are required for your minimum viable product?
+
+**Users can log in and create a profile. They can then set up items they have for rent such as cameras, TVs, Party equipment like speakers/fog machines etc. Users will be able to Create, Read, Update and Delete rental data. A 2nd user can log in and see items that users have for rent and ask to rent an item. No payment processing necessary for MVP.**
+
+- What features may you wish to put in a future release?
+
+**Payment options**
+
+- What do the top 3 similar apps do for their users?
+**Grover has over 300 tech products listed. Luminoid has only four categories of products but one specifying drones. Best Buy also allows you to test tech before purchasing it**
+
+---
+
+- What 3rd party frameworks/libraries are you considering using?
+
+**react-day-picker, react-rater, styled components, formik, yup**
+
+- Do APIs require you to contact its maintainer to gain access?
+
+- Are you required to pay to use the API?
+
+- Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +110,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+<!-- fix delete button with bryce
+     ----------------------------
+get the upload images figured out
+---------------------------- -->

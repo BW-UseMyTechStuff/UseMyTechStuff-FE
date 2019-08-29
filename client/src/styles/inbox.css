@@ -1,0 +1,39 @@
+.mailbox {
+    width: 100vw;
+    color: #2E2F38;
+    margin: auto;
+  }
+
+.mailbox h1 {
+   background-color: #086A27;
+   padding: .5rem;
+   color: #F6F6F8;
+   margin: auto;
+   text-align: center;
+   max-width: 300px;
+}
+
+.message {
+  max-width: 500px;
+  display: flex; 
+  margin-bottom: .5rem;
+  padding: 5px;
+  background: #CCCDD6;
+  margin: auto;
+}
+.message .actions {
+  margin: 1rem 1rem; 
+}
+.message input {
+  width: 3rem;
+}
+
+.message .sender {
+  font-weight: bold;
+  width: 9rem;
+}
+
+/* .message .title {
+  
+  width: 100%;
+} */

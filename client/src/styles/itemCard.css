@@ -8,8 +8,22 @@
     align-items: center;
     box-shadow: 2px 2px 10px #000;
   }
+
+  @media(min-width: 800px) {
+    .item-card {
+      width: 20%;
+    }
+  }
   
   .item-card img {
     width: 100px;
     height: 100px;
+  }
+
+  @media(min-width: 800px) {
+    .btnctnr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
