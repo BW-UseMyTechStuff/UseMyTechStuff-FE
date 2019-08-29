@@ -7,24 +7,24 @@ import '../../styles/registration.css';
 const Registration = (props) => {
 
     const [user, setUser] = useState({
-        'username': '',
-        'email': '',
-        'password': '',
-        'confirmPassword': '',
-        'birthday': ''
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        birthday: ''
     })
 
     const changeHandler = event => {
         event.preventDefault();
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setUser({ ...user, [event.target.name]: event.target.value });
       };
     
-      const register = e => {
-        e.preventDefault();
+      const handleSubmit = event => {
+        event.preventDefault();
         props.addUser(user)
         props.history.push('/protected');
-          console.log(props.history)
+          console.log('reg: ',props.history)
       }
 
     return (
@@ -59,7 +59,7 @@ const Registration = (props) => {
                         <input type='checkbox' name='tos' />
                         <p>I agree to the Terms and Conditions</p>
                     </div>
-                        <button type='submit' onClick={register} >Join</button>
+                        <button type='submit' onClick={handleSubmit} >Join</button>
                 </div>
             </form>
         </div>

@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 import { updateItem, deleteItem } from '../../store/actions';
 import {NavLink} from 'react-router-dom';
 import '../../styles/itemCard.css';
 
+
 const ItemCard = (props) => {
-    
+    // console.log(props.data)
     return (
         <div className='item-card'>
             

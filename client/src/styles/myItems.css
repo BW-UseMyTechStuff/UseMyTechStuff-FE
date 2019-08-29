@@ -1,5 +1,6 @@
 /* My Items */
 .myitems-page {
+  margin: auto;
     display: flex;
     flex-direction: column;
   }
@@ -24,4 +25,13 @@
     margin: 1rem 1rem 0 1rem;
     padding: 1rem 0.5rem;
     background: #EAB602;
+  }
+
+  @media(min-width: 800px) {
+    .cards-container {
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }

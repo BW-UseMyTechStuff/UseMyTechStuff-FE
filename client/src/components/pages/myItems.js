@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ItemCard from './itemCard';
-// import ListedItem from './listedItem';
 import { fetchItem } from '../../store/actions';
 import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import '../../styles/myItems.css'; 
+
 
 class MyItems extends Component {
     
@@ -20,9 +20,11 @@ class MyItems extends Component {
             <NavLink to='/protected'><button>Back</button></NavLink>
             </div>
             <h1>My Items</h1>
+            <div className='cards-container'>
                 {this.props.data.map(data =>
                 <ItemCard key={data.id} data={data}/>
                 )}
+            </div>
             </div>
         )
     }

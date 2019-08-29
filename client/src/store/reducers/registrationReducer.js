@@ -26,7 +26,7 @@ import {
           addUser: action.payload,
           error: '',
           fetchingData: false,
-          usernameoremail: action.payload
+          username: action.payload
           
         };
       case REGISTRATION_FAILURE:

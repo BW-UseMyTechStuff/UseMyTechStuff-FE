@@ -33,21 +33,27 @@
   
   .item-info {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 1rem auto; 
+    align-items: center;
+    height: auto;
   }
 
   .item-info img {
-    height: 20rem;
+    width: 100%;
+    height: auto; 
   }
   
   .item-info-list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 1.4rem;
     background: #dad9d9;
     padding: 1rem 2rem;
     width: 40%;
+    height: auto;
+    
   }
   
   .item-description {

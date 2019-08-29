@@ -2,26 +2,22 @@ import React, {Component} from "react"
 import { addItem, fetchItem } from "../../store/actions";
 import {connect} from 'react-redux';
 import '../../styles/addItem.css';
+    
+    const features1 = 'features-1';
+    const features2 = 'features-2';
+    const features3 = 'features-3';
+    const features4 = 'features-4';
+    const features5 = 'features-5';
 
 class AddItemForm extends Component {
-    // constructor(props){
-    //     super(props)
         state = {
                 item: '',
                 description: '',
                 price: '',
                 category: '',
-                // 'model-num': 'model' || '',
-                // 'sku-num': 'sku' || '',
-                // status: '',
-                // warranty: '',
-        //         'features-1': 'features1' || '',
-        //         'features-2': 'features2' || '',
-        //         'features-3': 'features3' || '',
-        //         'features-4': 'features4' || '',
-        //         'features-5': 'features5' || '',
+                
         }
-    // }
+    
 
     handleSubmit = event => {
         event.preventDefault()
@@ -33,15 +29,13 @@ class AddItemForm extends Component {
                 price: '',
                 category: '',
                 warranty: '',
-                // 'model-num': model || '',
-                // 'sku-num': sku || '',
-                // // status: '',
-                
-                // 'features-1': features1 || '',
-                // 'features-2': features2 || '',
-                // 'features-3': features3 || '',
-                // 'features-4': features4 || '',
-                // 'features-5': features5 || '',
+                'model-num': model || '',
+                'sku-num': sku || '',
+                'features-1': features1 || '',
+                'features-2': features2 || '',
+                'features-3': features3 || '',
+                'features-4': features4 || '',
+                'features-5': features5 || '',
         })
         this.props.history.push('/myitems');
     };
@@ -76,14 +70,14 @@ class AddItemForm extends Component {
                 </div>
                 <div className='add-page' id='page2'>
                     <div className='add-input'>
-                        <h3>2. How long has this product been used for?</h3>
-                        {/* <select name='warranty' value={this.state.warranty} onChange = {this.handleChange}>
+                        <h3>2. Is your product currently under warranty? If so, how much longer is it protected?</h3>
+                        <select name='warranty' value={this.state.warranty} onChange = {this.handleChange}>
                             <option>Select a Timeframe</option>
-                            <option value='Couple Weeks'>Couple Weeks</option>
-                            <option value='6 months'>6 months</option>
+                            <option value='Less than a year'>Less than a year</option>
                             <option value='1 year'>1 year</option>
-                            <option value='More than 1 year'>More than 1 year</option>
-                        </select> */}
+                            <option value='2 years'>2 years</option>
+                            <option value='3+ years'>3+ years</option>
+                        </select>
                     </div>
                     <div className='add-buttons'>
                         <a href='#page1'>Back</a>
@@ -94,8 +88,8 @@ class AddItemForm extends Component {
                 <div className='add-input'>
                     <h3>3. Provide specific product details.</h3>
                         <input type='text' value={this.state.item} name="item" placeholder='Name' onChange = {this.handleChange}/>
-                        {/* <input type='text' value={this.state.model} name="model" placeholder='Model #' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.sku} name="sku" placeholder='SKU #' onChange = {this.handleChange}/> */}
+                        <input type='text' value={this.state.model} name="model-num" placeholder='Model #' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.sku} name="sku-num" placeholder='SKU #' onChange = {this.handleChange}/>
                 </div>
                 <div className='add-buttons'>
                         <a href='#page2'>Back</a>
@@ -105,11 +99,11 @@ class AddItemForm extends Component {
                 <div className='add-page' id='page4'>
                 <div className='add-input'>
                     <h3>4. List 5 unique features of your product.</h3>
-                        {/* <input type='text' value={this.state.features1} name="features1" placeholder='1.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features2} name="features2" placeholder='2.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features3} name="features3" placeholder='3.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features4} name="features4" placeholder='4.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features5} name="features5" placeholder='5.' onChange = {this.handleChange}/>  */}
+                        <input type='text' value={this.state.features1} name="features-1" placeholder='1.' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.features2} name="features-2" placeholder='2.' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.features3} name="features-3" placeholder='3.' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.features4} name="features-4" placeholder='4.' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.features5} name="features-5" placeholder='5.' onChange = {this.handleChange}/> 
                 </div>
                 <div className='add-buttons'>
                         <a href='#page3'>Back</a>
@@ -119,9 +113,9 @@ class AddItemForm extends Component {
                 <div className='add-page' id='page5'>
                 <div className='add-input'>
                     <h3>5. Upload Images of Product</h3>
-                    {/* <input type="file" name="pic" accept='image/*' /> */}
+                    <input type="file" name="pic" accept='image/*' />
                    <h3>Upload warranty details of your product.</h3> 
-                    {/* <input type="file" name="pic" accept='image/*' /> */}
+                    <input type="file" name="pic" accept='image/*' />
                 </div>
                 <div className='add-buttons'>
                         <a href='#page4'>Back</a>

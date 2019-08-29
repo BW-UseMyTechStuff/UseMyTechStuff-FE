@@ -1,0 +1,61 @@
+.rent-page {
+    width:100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.rent-page h1 {
+    margin: auto;
+    background: #EAB602;
+    font-weight: bold;
+    padding: 0 1rem;
+}
+
+.rent-top {
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.rent-top h3 {
+    align-self: flex-start;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem 0.5rem;
+    background: #EAB602;
+    color: #2E2F38;
+}
+
+.rent-categories {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #EAB602;
+}
+
+.rent-categories a {
+    text-decoration: none;
+    width: auto;
+    color: #000;
+    padding: 1rem 0.5rem;
+    background: #EAB602;
+    font-weight: bold;
+}
+
+.rent-categories a:hover {
+    background: #EA9703;
+}
+
+.rent-images {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.rent-images img {
+    height: 6rem;
+    margin: 4rem 2rem;
+}
