@@ -1,6 +1,8 @@
 import React from 'react';
-import StarRatingComponent from 'react-star-rating-component'; 
+// import StarRatingComponent from 'react-star-rating-component'; 
 import DayPicker, { DateUtils } from 'react-day-picker';
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 import 'react-day-picker/lib/style.css';
 import '../../styles/itemPage.css';
 
@@ -35,8 +37,8 @@ class ListedItem extends React.Component {
       }
      
       render() {
-        const { rating } = this.state;
-        console.log(this.props)
+        // const { rating } = this.state;
+        console.log('I:',this.state)
     return (
         <div className='item-page'>
             <div className='item-top'>
@@ -46,20 +48,21 @@ class ListedItem extends React.Component {
                     <h3>SKU: TLA800</h3>
                 </div>
                 <div className='item-rating'>
-                    <StarRatingComponent
+                <Rater total={5} rating={2} />
+                    {/* <StarRatingComponent
                         selectedDays={this.state.selectedDays}
                         onDayClick={this.handleDayClick}
                         name="rate1" 
                         starCount={5}
                         value={rating}
                         onStarClick={this.onStarClick.bind(this)}
-                    />
+                    /> */}
                     <h2>$52/night</h2>
                 </div>
             </div>
             <button className='button'>RENT</button>
             <div className='item-info'>
-                <img src='https://via.placeholder.com/150'alt='placeholder'/>
+                <img src={process.env.PUBLIC_URL + "/img/bluetooth-speaker.png"} alt='placeholder'/>
                 <ul className='item-info-list'>
                     <li>High Power audio system</li>
                     <li>Bluetooth compatibility</li>

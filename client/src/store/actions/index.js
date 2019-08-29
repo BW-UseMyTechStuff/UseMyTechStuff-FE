@@ -64,7 +64,7 @@ export const fetchItem = getStuff =>dispatch => {
   axiosWithAuth()
     .get(`/techstuff/items`, getStuff )
     .then(res => {
-      console.log('fetched items', res)
+      // console.log('fetched items', res)
       dispatch({type:FETCH_SUCCESS, payload:res.data})
     })
     .catch(err => {
@@ -80,7 +80,7 @@ export const addItem = addStuff => dispatch => {
   axiosWithAuth()
   .post(`techstuff/newItem`, addStuff)
   .then(res => {
-    console.log('added item', res.data)
+    // console.log('added item', res.data)
     dispatch({type: FETCH_SUCCESS, payload: res.data})
     return true
   })
@@ -110,9 +110,39 @@ export const ITEM_DETAIL_SUCCESS = 'ITEM_DETAIL_SUCCESS';
 export const itemDetail = id => dispatch => {
     dispatch ({type: ITEM_DETAIL_START});
     axiosWithAuth()
-    .get(`/techstuff/${id}`)
+    .get(`/techstuff/items/${id}`)
     .then(res => {
-        console.log(res)
+        // console.log(res)
         dispatch({type: ITEM_DETAIL_SUCCESS, payload: res.data})
     })
+}
+
+//Delete Action
+export const DELETE_ITEM_START = "DELETE_ITEM_START";
+export const DELETE_ITEM_SUCCESS = "DELETE_ITEM_SUCCESS";
+export const DELETE_ITEM_FAILURE = "DELETE_ITEM_FAILURE";
+
+export const deleteItem = id => dispatch => {
+  dispatch({ type: DELETE_ITEM_START });
+  axiosWithAuth()
+    .delete(`techstuff/items/${id}`)
+    .then(res => {
+        console.log(res.data.message)
+       dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });
+    })
+    .catch(err => {
+      dispatch({ type: DELETE_ITEM_FAILURE, payload: err.response });
+    });
+};
+const itemsToFilter = []
+// Search Action
+export const SEARCH_ITEM = 'SEARCH_ITEM';
+export const search = searchString => {
+  searchString= searchString.toLowerCase();
+  let filteredItems = itemsToFilter[0].data.filter(data => data.item.toLowerCase().includes(searchString))
+
+  return {
+      type: SEARCH_ITEM,
+      payload: filteredItems
+  }
 }

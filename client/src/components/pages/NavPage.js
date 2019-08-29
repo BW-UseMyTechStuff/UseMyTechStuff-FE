@@ -34,7 +34,7 @@ const StyledHeader = styled.h3`
 `;
 
 export default function NavPage() {
-  const [naviLinks, setNaviLinks] = useState(navData);
+  const [naviLinks] = useState(navData);
   return (
     <StyledSection className="nav-page">
       <div className="nav-top">

@@ -52,7 +52,7 @@ const navData = [
       alt: 'customer service icon',
       text: "Customer Service",
       flex: "49%",
-      href: '#'
+      href: '/contact'
     }
   ];
   

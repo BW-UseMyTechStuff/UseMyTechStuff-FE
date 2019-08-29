@@ -2,7 +2,7 @@ import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import styled from 'styled-components'
 import '../../styles/login.css';
@@ -14,7 +14,7 @@ color:    #B22222;
 
 
 function UserForm({ touched, errors }) {
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
 
 //   if (token) {
 //     return <Redirect to="/" />;

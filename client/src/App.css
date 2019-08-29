@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Tinos&display=swap");
+html {
+  font-family: 'Tinos', serif;
+}
 /* .App {
   text-align: center;
 } */
@@ -65,4 +69,14 @@ div.new_html_code {
 
  .nav-page {
    margin: auto;
+ }
+
+ .itemPages {
+   display: none;
+ }
+
+ .btnctnr {
+   width:90%;
+   display: flex;
+   justify-content: space-around;
  }
