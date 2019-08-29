@@ -20,10 +20,6 @@ const Registration = (props) => {
         setUser({ ...user, [event.target.name]: event.target.value });
       };
     
-      const handleSubmit = event => {
-        event.preventDefault();
-      };
-    
       const register = e => {
         e.preventDefault();
         props.addUser(user)

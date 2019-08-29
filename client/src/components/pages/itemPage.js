@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
-import ItemCard from './itemCard';
-// import ListedItem from './listedItem';
+import ListedItem from './listedItem';
 import { fetchItem } from '../../store/actions';
 import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import '../../styles/myItems.css'; 
 
-class MyItems extends Component {
+class ItemPage extends Component {
     
     componentDidMount(){
         this.props.fetchItem();
     }
     render() {
-        // console.log('O', this.props)
+        console.log('P: ', this.props.data)
         return (
             <div className='myitems-page'>
-                <div className='myitems-top'>
+                {/* <div className='myitems-top'>
             <h4>umts</h4>
             <NavLink to='/protected'><button>Back</button></NavLink>
             </div>
-            <h1>My Items</h1>
+            <h1>My Items</h1> */}
                 {this.props.data.map(data =>
-                <ItemCard key={data.id} data={data}/>
+                <ListedItem key={data.id} data={data}/>
                 )}
             </div>
         )
@@ -34,4 +32,4 @@ const mapStateToProps = state =>   ({
     fetching: state.itemReducer.fetching,
     error: state.itemReducer.error
    })
-export default connect(mapStateToProps, {fetchItem}) (MyItems)
+export default connect(mapStateToProps, {fetchItem}) (ItemPage)

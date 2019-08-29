@@ -33,12 +33,21 @@
   
   .item-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+  }
+
+  .item-info img {
+    height: 20rem;
   }
   
   .item-info-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.4rem;
     background: #dad9d9;
     padding: 1rem 2rem;
+    width: 40%;
   }
   
   .item-description {
