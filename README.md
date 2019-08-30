@@ -42,6 +42,27 @@
 - Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?)
 
 
+
+
+                                            Team Contribution
+I communicated back and forth with all members of my build week team addressing front and back end issues.
+I pair-programmed for the majority of my week with the other Front-end developer and we applied our skills to make our awesome project together using VScode Liveshare. I think we both put in a lot of work and we are proud of the outcome  https://usemytechstuffv2.netlify.com/
+                                                HTML/CSS
+I researched and used our basic knowledge of HTML and CSS to design the layout of our beautiful app, following the same color scheme.
+Responsiveness
+The site is responsive down through the mobile size (below 500px).
+Mobile styling seemed intimidating at first, but it ended up being a breeze.
+                                        JavaScript Fundamentals
+We installed tons of dependencies to incorporate all kinds of different features of Javascript. From Objects to Functions, Styled Components to Axios requests, and Routes to Forms, we included the full package!
+                                            Applied JavaScript
+After building the registration and login components, we worked on the functionality for listing an item as well as edit and delete buttons. Adding drop down menus was fun as well as neatly formatting all of our pages.
+I built the login component and helped with the registration form as well. I learned a lot this build week and I can definitely say with confidence that I am ready to take everything I learned to the next level in the future.                                                           Contribution                
+ I spent loads of time figuring out errors and running through meetings with front end devs and our back end dev. Creating functions was something else I worked on as well as getting the functionality of our drop down menus to work. It ended up being a great challenge that I handled and comprehended very well.
+I think the teams communication skills were perfect. We all got along and really enjoyed creating this app. Private routing was a challenge for us for sure, but we pushed through it and our proud of the outcome. I also fixed some functionality during the process of listing an item as well as working on the edit and delete buttons once an item is for sale. Overall it definitely was intimidating at times, but I think we created an awesome, useful, responsive app as well as a wonderful piece for our porfolios.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

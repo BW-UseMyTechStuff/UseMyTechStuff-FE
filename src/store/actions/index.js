@@ -138,12 +138,12 @@ export const deleteItem = id => dispatch => {
     .delete(`techstuff/${id}`)
     .then(res => {
         console.log(res.data.message)
-       dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });
-       window.location.reload()
+       dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
+      //  window.location.reload()
     })
     .catch(err => {
       console.log(err)
-      dispatch({ type: DELETE_ITEM_FAILURE, payload: err.response });
+      dispatch({ type: DELETE_ITEM_FAILURE, payload: err });
     });
 };
 const itemsToFilter = []
