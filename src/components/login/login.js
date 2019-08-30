@@ -32,6 +32,12 @@ function UserForm({ touched, errors }) {
     <label htmlFor = "password">password</label>
     <Field id="password" type="password" autoComplete="off" placeholder="password" name= "password"/>
     <H5>{touched.password && errors.password}</H5>
+    <label htmlFor = "birthday">birthday</label>
+    <Field className='login-input' id="birthday" type="birthday" autoComplete="off" placeholder="birthday" name = "birthday"/>
+     <H5>{touched.birthday && errors.birthday}</H5>
+    <label htmlFor = "email">password</label>
+    <Field id="email" type="email" autoComplete="off" placeholder="email" name= "email"/>
+    <H5>{touched.email && errors.email}</H5>
     {/* <label htmlFor = "confirmPassword">Confirm your password</label>
     <Field id="passwordConfirmation" type="password" placeholder="passwordConfirmation" name="passwordConfirmation"/>
    <H5>{touched.passwordConfirmation && errors.passwordConfirmation}</H5>
@@ -47,8 +53,10 @@ function UserForm({ touched, errors }) {
 const FormikUserForm = withFormik({
   mapPropsToValues() {
     return {
-        username: '',
-        password: ''
+        username: "",
+        password: "",
+        birthday: "",
+        email: "",
         // confirmPassword: "",
         // rememberPassword: false
     };

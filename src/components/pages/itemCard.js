@@ -6,7 +6,7 @@ import '../../styles/itemCard.css';
 
 
 const ItemCard = (props) => {
-    // console.log(props.data)
+    console.log(props.data.id)
     return (
         <div className='item-card'>
             

@@ -52,7 +52,7 @@ const Registration = (props) => {
                     <p className='bday'>
                         <label>Birthday</label>
                         <label>*We require all our users to be 18 or older.</label>
-                        <input type="date" name="birthday" onChange={changeHandler} value={user.birthday} required/>
+                        <input type="text" name="birthday" onChange={changeHandler} value={user.birthday} required/>
                     </p>
                     <p></p>
                     <div className='checkbox'>

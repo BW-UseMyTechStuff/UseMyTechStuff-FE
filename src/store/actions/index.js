@@ -10,21 +10,16 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = (username, password) => dispatch => {
     dispatch({ type: LOGIN_START });
     return axiosWithAuth()
-      .post(`/auth/login`, {
+      .post(`https://use-my-techstuff.herokuapp.com/api/auth/login`, {
         username: username,
         password: password
       })
       .then(res => {
-        localStorage.setItem('token',res.data.token);
+        // localStorage.setItem('token',res.data.token);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         return true
       })
       .catch(res => {
-
-        // logout(callback => {
-        //   console.log(username)
-        //   alert(res);
-        // });
         dispatch({
           type: LOGIN_FAILURE,
           payload: res.data
@@ -32,23 +27,30 @@ export const login = (username, password) => dispatch => {
       });
   };
 
+  //Logout
+  // export const LOGOUT_START = 'LOGOUT_START';
+  // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+  // export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+
+  // export const logout = 
+
   //Register Actions
 
 export const REGISTRATION_START = 'REGISTRATION_START';
 export const REGISTRATION_SUCCESS = 'REGISTRATION_SUCCESS';
 export const REGISTRATION_FAILURE = 'REGISTRATION_FAILURE';
 
-export const addUser = (username, password, email, birthday) => dispatch => {
+export const addUser = (user) => dispatch => {
   dispatch({ type: REGISTRATION_START });
-  axiosWithAuth()
-    .post(`/auth/register`, {
-      username: username,
-      password: password,
-      email: email,
-      birthday: birthday
+  axios.post(`https://use-my-techstuff.herokuapp.com/api/auth/register`, {
+      username:user.username,
+      password:user.password,
+      email:user.email,
+      birthday:user.birthday
     })
     .then(res => {
-      localStorage.setItem('token', res.data.token);
+      // localStorage.setItem('token', res.data.token);
+      console.log(res.data)
       dispatch({ type: REGISTRATION_SUCCESS, payload: res.data });
       return true;
     })
@@ -67,7 +69,7 @@ export const FETCH_FAILURE = "FETCH_FAILURE";
 export const fetchItem = getStuff =>dispatch => {
   dispatch({ type: FETCH_START});
   axiosWithAuth()
-    .get(`/techstuff/items`, getStuff )
+    .get(`https://use-my-techstuff.herokuapp.com/api/techstuff/items`, getStuff )
     .then(res => {
       console.log('fetched items', res)
       dispatch({type:FETCH_SUCCESS, payload:res.data})
@@ -83,7 +85,7 @@ export const ADD_START ="ADD_START";
 export const addItem = addStuff => dispatch => {
   dispatch({ type: ADD_START });
   axiosWithAuth()
-  .post(`techstuff/newItem`, addStuff)
+  .post(`https://use-my-techstuff.herokuapp.com/api/techstuff/newItem`, addStuff)
   .then(res => {
     console.log('added item', res.data)
     dispatch({type: FETCH_SUCCESS, payload: res.data})
@@ -101,7 +103,7 @@ export const EDIT_START="EDIT_START"
 export const updateItem = (id) => dispatch => {
   dispatch({ type: EDIT_START })
   axiosWithAuth()
-  .put(`/techstuff/${id}`)
+  .put(`https://use-my-techstuff.herokuapp.com/api/techstuff/${id}`)
   .then(res => {
     dispatch({ type: FETCH_SUCCESS, payload: res.data})
   })
@@ -116,7 +118,7 @@ export const ITEM_DETAIL_SUCCESS = 'ITEM_DETAIL_SUCCESS';
 export const itemDetail = id => dispatch => {
     dispatch ({type: ITEM_DETAIL_START});
     axiosWithAuth()
-    .get(`/techstuff/items/${id}`)
+    .get(`https://use-my-techstuff.herokuapp.com/api/techstuff/items/${id}`)
     .then(res => {
         // console.log(res)
         dispatch({type: ITEM_DETAIL_SUCCESS, payload: res.data})
@@ -131,7 +133,7 @@ export const DELETE_ITEM_FAILURE = "DELETE_ITEM_FAILURE";
 export const deleteItem = id => dispatch => {
   dispatch({ type: DELETE_ITEM_START });
   axiosWithAuth()
-    .delete(`techstuff/items/${id}`)
+    .delete(`https://use-my-techstuff.herokuapp.com/api/techstuff/items/${id}`)
     .then(res => {
         console.log(res.data.message)
        dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });

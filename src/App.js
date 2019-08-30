@@ -34,7 +34,7 @@ function App() {
         <Route path='/add' component={AddItem} />
         <Route path='/contact' component={ContactForm} />
         <Route path='/rent' component={RentItem} />
-        <Route path='/protected' component={NavPage} />
+        <PrivateRoute path='/protected' component={NavPage} />
         <Route path="/tv" component={TvList} />
         <Route path="/computer" component={ComputerList} />
         <Route path="/camera" component={CameraList} />
