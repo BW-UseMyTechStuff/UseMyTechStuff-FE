@@ -139,7 +139,7 @@ export const deleteItem = id => dispatch => {
     .then(res => {
         console.log(res.data.message)
        dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });
-       document.location.reload(true)
+       window.location.reload()
     })
     .catch(err => {
       console.log(err)
