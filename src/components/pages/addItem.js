@@ -2,12 +2,7 @@ import React, {Component} from "react"
 import { addItem, fetchItem } from "../../store/actions";
 import {connect} from 'react-redux';
 import '../../styles/addItem.css';
-    
-    const features1 = 'features-1';
-    const features2 = 'features-2';
-    const features3 = 'features-3';
-    const features4 = 'features-4';
-    const features5 = 'features-5';
+import axios from 'axios';
 
 class AddItemForm extends Component {
         state = {
@@ -15,7 +10,7 @@ class AddItemForm extends Component {
                 description: '',
                 price: '',
                 category: '',
-                
+                // url: '',    
         }
     
 
@@ -29,6 +24,7 @@ class AddItemForm extends Component {
                 price: '',
                 category: '',
                 warranty: '',
+                // url: '',
                 'model-num': model || '',
                 'sku-num': sku || '',
                 'features-1': features1 || '',
@@ -40,6 +36,16 @@ class AddItemForm extends Component {
         this.props.history.push('/myitems');
     };
     
+    // addImage = event => {
+    //     event.preventDefault()
+    //     axios.post(`https://use-my-techstuff.herokuapp.com/api/techstuff/img/upload`)
+    //     .then(res => {
+    //         this.setState({
+    //             url: ''
+    //         })
+    //     .catch(err => console.log(err))
+    //     })
+    // }
 
     handleChange = event => {
         event.preventDefault();
@@ -65,10 +71,11 @@ class AddItemForm extends Component {
                         </select>
                     </div>
                     <div className='add-buttons'>
+                        <a href='javascript:history.back()'>Back</a>
                         <a href='#page2'>Next</a>
                     </div>
                 </div>
-                <div className='add-page' id='page2'>
+                {/* <div className='add-page' id='page2'>
                     <div className='add-input'>
                         <h3>2. Is your product currently under warranty? If so, how much longer is it protected?</h3>
                         <select name='warranty' value={this.state.warranty} onChange = {this.handleChange}>
@@ -82,14 +89,52 @@ class AddItemForm extends Component {
                     <div className='add-buttons'>
                         <a href='#page1'>Back</a>
                         <a href='#page3'>Next</a>
+                    </div> */}
+                {/* </div> */}
+                <div className='add-page' id='page2'>
+                <div className='add-input'>
+                    <h3>2. Provide name of product.</h3>
+                        <input type='text' value={this.state.item} name="item" placeholder='Name' onChange = {this.handleChange}/>
+                        {/* <input type='text' value={this.state.model} name="model-num" placeholder='Model #' onChange = {this.handleChange}/>
+                        <input type='text' value={this.state.sku} name="sku-num" placeholder='SKU #' onChange = {this.handleChange}/> */}
+                </div>
+                <div className='add-buttons'>
+                        <a href='#page1'>Back</a>
+                        <a href='#page3'>Next</a>
                     </div>
                 </div>
+                {/* // <div className='add-page' id='page4'>
+                // <div className='add-input'>
+                //     <h3>4. List 5 unique features of your product.</h3>
+                //         <input type='text' value={this.state.features1} name="features-1" placeholder='1.' onChange = {this.handleChange}/>
+                //         <input type='text' value={this.state.features2} name="features-2" placeholder='2.' onChange = {this.handleChange}/>
+                //         <input type='text' value={this.state.features3} name="features-3" placeholder='3.' onChange = {this.handleChange}/>
+                //         <input type='text' value={this.state.features4} name="features-4" placeholder='4.' onChange = {this.handleChange}/>
+                //         <input type='text' value={this.state.features5} name="features-5" placeholder='5.' onChange = {this.handleChange}/> 
+                // </div>
+                // <div className='add-buttons'>
+                //         <a href='#page3'>Back</a>
+                //         <a href='#page5'>Next</a>
+                //     </div>
+                // </div>
+                // <div className='add-page' id='page5'>
+                // <div className='add-input'>
+                //     <h3>5. Upload an Image of Product</h3>
+                //     <input type="text" name="url" value={this.state.url}  placeholder='Image URL' onChange = {this.handleChange} />
+                //    <h3>Upload warranty details of your product.</h3> 
+                //     <input type="text" name="url" value={this.state.url}  placeholder='Image URL' onChange = {this.handleChange} />
+                // </div>
+                // <div className='add-buttons'>
+                //         <a href='#page4'>Back</a>
+                //         <a href='#page6'>Next</a>
+                //     </div>
+                // </div> */}
                 <div className='add-page' id='page3'>
                 <div className='add-input'>
-                    <h3>3. Provide specific product details.</h3>
-                        <input type='text' value={this.state.item} name="item" placeholder='Name' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.model} name="model-num" placeholder='Model #' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.sku} name="sku-num" placeholder='SKU #' onChange = {this.handleChange}/>
+                    <h3>3. Pricing Information -</h3>
+                    <br/>
+                    <p>How much will it cost per day to rent your stuff?</p>
+                    <input type='text' value={this.state.price} name="price" placeholder='$' onChange = {this.handleChange}/>
                 </div>
                 <div className='add-buttons'>
                         <a href='#page2'>Back</a>
@@ -98,49 +143,11 @@ class AddItemForm extends Component {
                 </div>
                 <div className='add-page' id='page4'>
                 <div className='add-input'>
-                    <h3>4. List 5 unique features of your product.</h3>
-                        <input type='text' value={this.state.features1} name="features-1" placeholder='1.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features2} name="features-2" placeholder='2.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features3} name="features-3" placeholder='3.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features4} name="features-4" placeholder='4.' onChange = {this.handleChange}/>
-                        <input type='text' value={this.state.features5} name="features-5" placeholder='5.' onChange = {this.handleChange}/> 
-                </div>
-                <div className='add-buttons'>
-                        <a href='#page3'>Back</a>
-                        <a href='#page5'>Next</a>
-                    </div>
-                </div>
-                <div className='add-page' id='page5'>
-                <div className='add-input'>
-                    <h3>5. Upload Images of Product</h3>
-                    <input type="file" name="pic" accept='image/*' />
-                   <h3>Upload warranty details of your product.</h3> 
-                    <input type="file" name="pic" accept='image/*' />
-                </div>
-                <div className='add-buttons'>
-                        <a href='#page4'>Back</a>
-                        <a href='#page6'>Next</a>
-                    </div>
-                </div>
-                <div className='add-page' id='page6'>
-                <div className='add-input'>
-                    <h3>6. Pricing Information -</h3>
-                    <br/>
-                    <p>How much will it cost per day to rent your stuff?</p>
-                    <input type='text' value={this.state.price} name="price" placeholder='$' onChange = {this.handleChange}/>
-                </div>
-                <div className='add-buttons'>
-                        <a href='#page5'>Back</a>
-                        <a href='#page7'>Next</a>
-                    </div>
-                </div>
-                <div className='add-page' id='page7'>
-                <div className='add-input'>
-                    7. Any additional information about your product?
+                    4. Any additional information about your product?
                     <textarea rows="10" cols="30" value={this.state.description} name="description" placeholder='' onChange = {this.handleChange}/>
                 </div>
                 <div className='add-buttons'>
-                        <a href='#page6'>Back</a>
+                        <a href='#page3'>Back</a>
                         <button type ="submit" onClick={this.handleSubmit}>Add Item</button>
                     </div>
                 </div>

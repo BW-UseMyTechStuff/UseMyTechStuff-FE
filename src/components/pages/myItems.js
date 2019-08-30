@@ -17,7 +17,10 @@ class MyItems extends Component {
             <div className='myitems-page'>
                 <div className='myitems-top'>
             <h4>umts</h4>
-            <NavLink to='/protected'><button>Back</button></NavLink>
+            <div>
+                <NavLink to='/add'><button>Add Item</button></NavLink>
+                <NavLink to='/protected'><button>Back</button></NavLink>
+            </div>
             </div>
             <h1>My Items</h1>
             <div className='cards-container'>
