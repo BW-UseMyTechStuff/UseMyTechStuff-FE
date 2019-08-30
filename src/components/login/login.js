@@ -35,7 +35,7 @@ function UserForm({ touched, errors }) {
     <label htmlFor = "birthday">birthday</label>
     <Field className='login-input' id="birthday" type="birthday" autoComplete="off" placeholder="birthday" name = "birthday"/>
      <H5>{touched.birthday && errors.birthday}</H5>
-    <label htmlFor = "email">password</label>
+    <label htmlFor = "email">Email</label>
     <Field id="email" type="email" autoComplete="off" placeholder="email" name= "email"/>
     <H5>{touched.email && errors.email}</H5>
     {/* <label htmlFor = "confirmPassword">Confirm your password</label>

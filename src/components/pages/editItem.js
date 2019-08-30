@@ -3,25 +3,18 @@ import axiosWitAuth from '../../utils/axiosWithAuth'
 import {NavLink} from 'react-router-dom';
 import '../../styles/edit.css';
 
-const editingState = {
-    item: '',
-    description: '',
-    price: '',
-    category: '',
-}
 
-const initialState = {
-    
-}
 
 export default function EditItem (props) {
-    const [stuff, setStuff] = useState(initialState)
-    useEffect(() => {
-        axiosWitAuth()
-        .get(`/techstuff/items/${props.match.params.id}`)
-        .then(res => setStuff(res.data))
-        .catch(err => console.log(err))
-    }, [props.match.params.id])
+    const editingState = {
+        item: '',
+        description: '',
+        price: '',
+        category: '',
+    }
+
+    const [stuff, setStuff] = useState(editingState)
+    
 
     const handleChange = e => {
         setStuff({...stuff, [e.target.name]: e.target.value})
@@ -39,7 +32,7 @@ export default function EditItem (props) {
         })
         .catch(err => console.log(err))
     }
-    console.log(initialState)
+    console.log(stuff)
     return (
         <div className='updateContainer'>
             <div className='update-top'>

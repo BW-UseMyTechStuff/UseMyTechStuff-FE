@@ -1,18 +1,27 @@
 /* Item Card */
 .item-card {
     margin: 2rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
     border: 1px solid #000;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 2px 2px 10px #000;
+    text-align: center;
   }
 
   @media(min-width: 800px) {
     .item-card {
-      width: 20%;
+      width: 300px;
     }
+  }
+
+  .editForm {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px dashed #000;
   }
   
   .item-card img {
@@ -20,10 +29,10 @@
     height: 100px;
   }
 
-  @media(min-width: 800px) {
+  /* @media(min-width: 800px) {
     .btnctnr {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-  }
+  } */

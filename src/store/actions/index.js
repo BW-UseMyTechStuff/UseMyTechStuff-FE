@@ -21,6 +21,7 @@ export const login = (username, password) => dispatch => {
       })
       .catch(res => {
         dispatch({
+          
           type: LOGIN_FAILURE,
           payload: res.data
         });
@@ -42,11 +43,12 @@ export const REGISTRATION_FAILURE = 'REGISTRATION_FAILURE';
 
 export const addUser = (user) => dispatch => {
   dispatch({ type: REGISTRATION_START });
-  axios.post(`https://use-my-techstuff.herokuapp.com/api/auth/register`, {
-      username:user.username,
-      password:user.password,
-      email:user.email,
-      birthday:user.birthday
+  axios
+  .post(`https://use-my-techstuff.herokuapp.com/api/auth/register`, {
+      username: user.username,
+      password: user.password,
+      email: user.email,
+      birthday: user.birthday
     })
     .then(res => {
       // localStorage.setItem('token', res.data.token);
@@ -69,7 +71,7 @@ export const FETCH_FAILURE = "FETCH_FAILURE";
 export const fetchItem = getStuff =>dispatch => {
   dispatch({ type: FETCH_START});
   axiosWithAuth()
-    .get(`https://use-my-techstuff.herokuapp.com/api/techstuff/items`, getStuff )
+    .get(`techstuff/items`, getStuff )
     .then(res => {
       console.log('fetched items', res)
       dispatch({type:FETCH_SUCCESS, payload:res.data})
@@ -85,7 +87,7 @@ export const ADD_START ="ADD_START";
 export const addItem = addStuff => dispatch => {
   dispatch({ type: ADD_START });
   axiosWithAuth()
-  .post(`https://use-my-techstuff.herokuapp.com/api/techstuff/newItem`, addStuff)
+  .post(`techstuff/newItem`, addStuff)
   .then(res => {
     console.log('added item', res.data)
     dispatch({type: FETCH_SUCCESS, payload: res.data})
@@ -103,7 +105,7 @@ export const EDIT_START="EDIT_START"
 export const updateItem = (id) => dispatch => {
   dispatch({ type: EDIT_START })
   axiosWithAuth()
-  .put(`https://use-my-techstuff.herokuapp.com/api/techstuff/${id}`)
+  .put(`techstuff/${id}`)
   .then(res => {
     dispatch({ type: FETCH_SUCCESS, payload: res.data})
   })
@@ -118,7 +120,7 @@ export const ITEM_DETAIL_SUCCESS = 'ITEM_DETAIL_SUCCESS';
 export const itemDetail = id => dispatch => {
     dispatch ({type: ITEM_DETAIL_START});
     axiosWithAuth()
-    .get(`https://use-my-techstuff.herokuapp.com/api/techstuff/items/${id}`)
+    .get(`techstuff/items/${id}`)
     .then(res => {
         // console.log(res)
         dispatch({type: ITEM_DETAIL_SUCCESS, payload: res.data})
@@ -133,10 +135,11 @@ export const DELETE_ITEM_FAILURE = "DELETE_ITEM_FAILURE";
 export const deleteItem = id => dispatch => {
   dispatch({ type: DELETE_ITEM_START });
   axiosWithAuth()
-    .delete(`https://use-my-techstuff.herokuapp.com/api/techstuff/items/${id}`)
+    .delete(`techstuff/${id}`)
     .then(res => {
         console.log(res.data.message)
        dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data.message });
+       document.location.reload(true)
     })
     .catch(err => {
       console.log(err)
